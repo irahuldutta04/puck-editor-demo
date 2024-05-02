@@ -3,7 +3,7 @@
 }
 
 .aboutBengal {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .mx-auto {
@@ -138,4 +138,22 @@
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.viewPage-btn {
+  background-color: #3300ff;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+
+.back-to-edit-btn {
+  background-color: #00a6ff;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
 }

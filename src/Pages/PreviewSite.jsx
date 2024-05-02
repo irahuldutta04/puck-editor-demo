@@ -1,18 +1,19 @@
-import React from 'react'
-import { MainPage } from './HomePage'
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { MainPage } from "./HomePage";
 
 const PreviewSite = () => {
-    const data = JSON.parse(localStorage.getItem('content'))
+  const data = JSON.parse(localStorage.getItem("content"));
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div>
-          <button onClick={() => navigate('/editor')}>Back to Edit</button>
-        <MainPage data={data} />
+      <button className="back-to-edit-btn" onClick={() => navigate("/editor")}>
+        Back to Edit
+      </button>
+      <MainPage data={data} />
     </div>
-  )
-}
+  );
+};
 
-export default PreviewSite
+export default PreviewSite;
