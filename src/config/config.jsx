@@ -70,8 +70,8 @@ export const config = {
                   color === "default"
                     ? "inherit"
                     : color === "muted"
-                    ? "#666"
-                    : "red",
+                      ? "#666"
+                      : "red",
                 display: "flex",
                 textAlign: align,
                 width: "100%",
@@ -84,8 +84,8 @@ export const config = {
                   align === "center"
                     ? "center"
                     : align === "right"
-                    ? "flex-end"
-                    : "flex-start",
+                      ? "flex-end"
+                      : "flex-start",
               }}
             >
               {text}
@@ -256,5 +256,72 @@ export const config = {
         );
       },
     },
+    Toursim: {
+      fields: {
+        padding: { type: 'text' },
+        maxWidth: { type: 'text' },
+        topText: { type: "text" },
+        HeaderPosition: {
+          type: "radio",
+          options: [
+            { label: "Left", value: "left" },
+            { label: "Center", value: "center" },
+            { label: "Right", value: "right" },
+          ],
+        },
+        Background_Image: { type: "text" },
+        items: {
+          type: "array",
+          getItemSummary: (item, i) => item.title || `Feature #${i}`,
+          defaultItemProps: {
+            title: "Title",
+            description: "Description",
+          },
+          arrayFields: {
+            title: { type: "text" },
+            description: { type: "text" },
+          },
+        },
+      },
+      defaultProps: {
+        topText: "Tourism",
+        padding: '0px',
+        maxWidth: '1280px',
+        HeaderPosition: 'center',
+        Background_Image: 'https://img.asmedia.epimg.net/resizer/v2/MGLDLRBRJVHNFJXBK5V3ATY2OM.jpg?auth=3369b1f9a28936f517b34c9806707a3e81f904e9079dd5140a075afd2f654ad3&width=644&height=362&smart=true',
+        items: [
+          {
+            title: "Stat",
+            description: "1,000",
+          },
+        ],
+
+      },
+      render: ({
+        topText,
+        padding,
+        maxWidth,
+        HeaderPosition,
+        Background_Image,
+        items
+      }) => {
+        return (
+          <Section padding={padding} maxWidth={maxWidth} style={{ backgroundImage: `url(${Background_Image})`, backgroudRepeat: 'no-repeat' }}>
+            <h2 style={{ textAlign: `${HeaderPosition}` }}>{topText}</h2>
+            <div>
+              <div>
+                {items.map((item, i) => (
+                  <div key={i}>
+                    <div style={{fontSize:'20px'}}>{item.title}</div>
+                    <div style={{ fontSize: '20px' }}>{item.description}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+        )
+      }
+
+    }
   },
 };
