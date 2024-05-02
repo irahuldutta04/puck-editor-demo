@@ -164,10 +164,9 @@
   cursor: pointer;
 }
 
-
 .reliefFund{
 background-color: #00a6ff;
-padding: 2rem;
+padding: 3rem;
 font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -175,13 +174,14 @@ font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 text-align: center;
 color: #ffffff;
 font-size: 3rem;
+margin-bottom: 3rem;
 }
 .paradiv{
 display: flex;
 flex-direction: column;
 justify-content: center;
-gap: 0.3rem;
-margin-bottom: 1.8rem;
+gap: 2rem;
+margin-bottom: 2.5rem;
 }
 
 .relpara{
