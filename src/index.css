@@ -157,3 +157,52 @@
   border: none;
   cursor: pointer;
 }
+
+
+.reliefFund{
+background-color: #00a6ff;
+padding: 2rem;
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.relheading{
+text-align: center;
+color: #ffffff;
+font-size: 3rem;
+}
+.paradiv{
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 0.3rem;
+margin-bottom: 1.8rem;
+}
+
+.relpara{
+  padding: 0 15rem;
+  font-size: 1.45rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.relbtn1{
+  padding: 0.72rem 3.5rem;
+  font-size: 1rem;
+  background-color: white;
+  border-radius: 1.2rem;
+  color: black;
+  font-weight: 600;
+  border: 1px solid black;
+  border: none;
+}
+
+.relbtn2{
+  padding: 0.7rem 3.5rem;
+  font-size: 1rem;
+  background-color: yellow;
+  border-radius: 1.2rem;
+  color: black;
+  font-weight: 600;
+  border: 1px solid black;
+ border: none;
+}
