@@ -15,6 +15,7 @@ import { SuperAdminDashboardPage } from "../Pages/SuperAdminDashboardPage";
 import { EditorPage } from "../Pages/EditorPage";
 import { AdminProfilePage } from "../Pages/AdminProfilePage";
 import { SuperAdminProfilePage } from "../Pages/SuperAdminProfilePage";
+import PreviewSite from "../Pages/PreviewSite";
 
 const isAuthenticatedAsAdmin = false; // Replace with your authentication logic
 const isAuthenticatedAsSuperAdmin = true; // Replace with your authentication logic
@@ -24,6 +25,8 @@ export const MainRoutes = () => {
     <Router>
       <Routes>
         {/* Render AdminLayout if authenticated, otherwise navigate to root */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/preview" element={<PreviewSite />} />
         {isAuthenticatedAsAdmin ? (
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin" element={<AdminDashboardPage />} />
@@ -44,9 +47,9 @@ export const MainRoutes = () => {
 
         {/* Routes for RootLayout */}
         <Route element={<RootLayout />}>
-          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/editor/:id" element={<EditorPage />} />
+          <Route path="/editor/:id?" element={<EditorPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

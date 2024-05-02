@@ -5,6 +5,7 @@ import "@measured/puck/puck.css";
 import Section from "../config/components/Section";
 
 export const AboutBengal = () => {
+  const navigate = useNavigate()
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold text-center mb-6">ABOUT BENGAL</h1>
@@ -255,9 +256,12 @@ const initialData = {
   root: {},
 };
 
+const data = JSON.parse(localStorage.getItem('content'))
+
 // Save the data to your database
 const save = (data) => {
   console.log(data, "data to save");
+  localStorage.setItem('content',JSON.stringify(data))
 };
 
 export const EditorPage = () => {
@@ -270,13 +274,13 @@ export const EditorPage = () => {
     <>
       <Puck
         config={config}
-        data={initialData}
+        data={data || initialData}
         onPublish={save}
         overrides={{
           headerActions: ({ children }) => (
             <>
               <div>
-                <button onClick={() => navigate("/page")}>View page</button>
+                <button onClick={() => navigate("/preview")}>View page</button>
               </div>
 
               {children}
