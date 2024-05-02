@@ -37,12 +37,20 @@ export const EditorPage = () => {
         overrides={{
           headerActions: ({ children }) => (
             <>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "10px",
+                }}
+              >
                 <button
                   className="viewPage-btn"
                   onClick={() => navigate("/preview")}
                 >
-                  View page
+                  Preview page
+                </button>
+                <button className="viewPage-btn" onClick={() => navigate("/")}>
+                  Home page
                 </button>
               </div>
 

@@ -39,7 +39,12 @@ export function HomePage() {
         <div>
           Are you Admin ?{" "}
           <span>
-            <button onClick={() => navigate("/editor")}>Edit Page</button>
+            <button
+              className="back-to-edit-btn"
+              onClick={() => navigate("/editor")}
+            >
+              Edit Page
+            </button>
           </span>
         </div>
       </div>
