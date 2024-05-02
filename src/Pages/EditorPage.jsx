@@ -180,6 +180,13 @@ const config = {
         governorName: { type: "text" },
         chiefMinisterImage: { type: "text" },
         chiefMinisterName: { type: "text" },
+        priority: {
+          type: "radio",
+          options: [
+            { label: "Default", value: "default" },
+            { label: "Reverse", value: "reverse" },
+          ],
+        },
       },
       defaultProps: {
         padding: "24px",
@@ -187,10 +194,13 @@ const config = {
         topText: "ABOUT BENGAL",
         bottomText:
           "Located in Eastern India, the fourth most populous state in the country is widely considered the Melting pot of Cultures. Bordered by five different states, its capital Kolkata is often termed as the cultural capital of India. West Bengal offers a unique flavour to the richness of India with its synthesis of various languages, religions, customs, traditions, cuisines and lifestyle. Bound by the grandeur of the Himalayan ranges in the north and sweetened by the sea in the south, Bengal has everything a state needs to flourish.",
-        governorImage: "https://placehold.co/150x150",
+        governorImage:
+          "https://upload.wikimedia.org/wikipedia/commons/5/5c/C._V._Ananda_Bose.jpg",
         governorName: "Dr. C.V. Ananda Bose",
-        chiefMinisterImage: "https://placehold.co/150x150",
+        chiefMinisterImage:
+          "https://upload.wikimedia.org/wikipedia/commons/4/4d/Official_portrait_of_Mamata_Banerjee.jpg",
         chiefMinisterName: "Smt. Mamata Banerjee",
+        priority: "default",
       },
       render: ({
         padding,
@@ -201,6 +211,7 @@ const config = {
         governorName,
         chiefMinisterImage,
         chiefMinisterName,
+        priority,
       }) => {
         return (
           <Section padding={padding} maxWidth={maxWidth}>
@@ -208,38 +219,86 @@ const config = {
               <h1 className="text-4xl font-bold text-center mb-6">{topText}</h1>
               <p className="text-lg text-zinc-700 mb-10">{bottomText}</p>
               <div className="flex md:flex-row justify-center gap-8">
-                <div className="text-center">
-                  <img
-                    src={governorImage}
-                    alt="Governor"
-                    className="mx-auto rounded-full mb-4"
-                    width={150}
-                    height={150}
-                  />
-                  <h2 className="text-xl font-semibold">MEET THE GOVERNOR</h2>
-                  <p className="font-medium text-zinc-800">{governorName}</p>
-                  <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    KNOW MORE
-                  </button>
-                </div>
-                <div className="text-center">
-                  <img
-                    src={chiefMinisterImage}
-                    alt="Chief Minister"
-                    className="mx-auto rounded-full mb-4"
-                    width={150}
-                    height={150}
-                  />
-                  <h2 className="text-xl font-semibold">
-                    MEET THE CHIEF MINISTER
-                  </h2>
-                  <p className="font-medium text-zinc-800">
-                    {chiefMinisterName}
-                  </p>
-                  <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    KNOW MORE
-                  </button>
-                </div>
+                {priority === "default" && (
+                  <>
+                    <div className="text-center">
+                      <img
+                        src={governorImage}
+                        alt="Governor"
+                        className="mx-auto rounded-full mb-4"
+                        width={150}
+                        height={150}
+                      />
+                      <h2 className="text-xl font-semibold">
+                        MEET THE GOVERNOR
+                      </h2>
+                      <p className="font-medium text-zinc-800">
+                        {governorName}
+                      </p>
+                      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        KNOW MORE
+                      </button>
+                    </div>
+                    <div className="text-center">
+                      <img
+                        src={chiefMinisterImage}
+                        alt="Chief Minister"
+                        className="mx-auto rounded-full mb-4"
+                        width={150}
+                        height={150}
+                      />
+                      <h2 className="text-xl font-semibold">
+                        MEET THE CHIEF MINISTER
+                      </h2>
+                      <p className="font-medium text-zinc-800">
+                        {chiefMinisterName}
+                      </p>
+                      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        KNOW MORE
+                      </button>
+                    </div>
+                  </>
+                )}
+                {priority === "reverse" && (
+                  <>
+                    <div className="text-center">
+                      <img
+                        src={chiefMinisterImage}
+                        alt="Chief Minister"
+                        className="mx-auto rounded-full mb-4"
+                        width={150}
+                        height={150}
+                      />
+                      <h2 className="text-xl font-semibold">
+                        MEET THE CHIEF MINISTER
+                      </h2>
+                      <p className="font-medium text-zinc-800">
+                        {chiefMinisterName}
+                      </p>
+                      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        KNOW MORE
+                      </button>
+                    </div>
+                    <div className="text-center">
+                      <img
+                        src={governorImage}
+                        alt="Governor"
+                        className="mx-auto rounded-full mb-4"
+                        width={150}
+                        height={150}
+                      />
+                      <h2 className="text-xl font-semibold">
+                        MEET THE GOVERNOR
+                      </h2>
+                      <p className="font-medium text-zinc-800">
+                        {governorName}
+                      </p>
+                      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        KNOW MORE
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </Section>
@@ -251,8 +310,28 @@ const config = {
 
 // Describe the initial data
 const initialData = {
-  content: [],
+  content: [
+    {
+      type: "AboutBengal",
+      props: {
+        padding: "24px",
+        maxWidth: "100%",
+        topText: "ABOUT BENGAL",
+        bottomText:
+          "Located in Eastern India, the fourth most populous state in the country is widely considered the Melting pot of Cultures. Bordered by five different states, its capital Kolkata is often termed as the cultural capital of India. West Bengal offers a unique flavour to the richness of India with its synthesis of various languages, religions, customs, traditions, cuisines and lifestyle. Bound by the grandeur of the Himalayan ranges in the north and sweetened by the sea in the south, Bengal has everything a state needs to flourish.",
+        governorImage:
+          "https://upload.wikimedia.org/wikipedia/commons/5/5c/C._V._Ananda_Bose.jpg",
+        governorName: "Dr. C.V. Ananda Bose",
+        chiefMinisterImage:
+          "https://upload.wikimedia.org/wikipedia/commons/4/4d/Official_portrait_of_Mamata_Banerjee.jpg",
+        chiefMinisterName: "Smt. Mamata Banerjee",
+        priority: "default",
+        id: "AboutBengal-a6c7df6e-dcad-4eb8-907e-c52a0b474134",
+      },
+    },
+  ],
   root: {},
+  zones: {},
 };
 
 // Save the data to your database
