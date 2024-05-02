@@ -4,6 +4,50 @@ import { Puck } from "@measured/puck";
 import "@measured/puck/puck.css";
 import Section from "../config/components/Section";
 
+export const AboutBengal = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 className="text-4xl font-bold text-center mb-6">ABOUT BENGAL</h1>
+      <p className="text-lg text-zinc-700 mb-10">
+        Located in Eastern India, the fourth most populous state in the country
+        is widely considered the Melting pot of Cultures. Bordered by five
+        different states, its capital Kolkata is often termed as the cultural
+        capital of India. West Bengal offers a unique flavour to the richness of
+        India with its synthesis of various languages, religions, customs,
+        traditions, cuisines and lifestyle. Bound by the grandeur of the
+        Himalayan ranges in the north and sweetened by the sea in the south,
+        Bengal has everything a state needs to flourish.
+      </p>
+      <div className="flex flex-col md:flex-row justify-center gap-8">
+        <div className="text-center">
+          <img
+            src="https://placehold.co/150x150"
+            alt="Governor"
+            className="mx-auto rounded-full mb-4"
+          />
+          <h2 className="text-xl font-semibold">MEET THE GOVERNOR</h2>
+          <p className="font-medium text-zinc-800">Dr. C.V. Ananda Bose</p>
+          <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            KNOW MORE
+          </button>
+        </div>
+        <div className="text-center">
+          <img
+            src="https://placehold.co/150x150"
+            alt="Chief Minister"
+            className="mx-auto rounded-full mb-4"
+          />
+          <h2 className="text-xl font-semibold">MEET THE CHIEF MINISTER</h2>
+          <p className="font-medium text-zinc-800">Smt. Mamata Banerjee</p>
+          <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            KNOW MORE
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Create Puck component config
 const config = {
   components: {
@@ -72,7 +116,11 @@ const config = {
             <span
               style={{
                 color:
-                  color === "default" ? "inherit" : color === "muted" ? "#666" : "red",
+                  color === "default"
+                    ? "inherit"
+                    : color === "muted"
+                    ? "#666"
+                    : "red",
                 display: "flex",
                 textAlign: align,
                 width: "100%",
@@ -91,6 +139,109 @@ const config = {
             >
               {text}
             </span>
+          </Section>
+        );
+      },
+    },
+    // image block
+    Image: {
+      fields: {
+        src: { type: "text" },
+        alt: { type: "text" },
+        width: { type: "text" },
+        height: { type: "text" },
+        padding: { type: "text" },
+        maxWidth: { type: "text" },
+      },
+      defaultProps: {
+        src: "https://placehold.co/150x150",
+        alt: "Image",
+        width: "150px",
+        height: "150px",
+        padding: "24px",
+        maxWidth: "100%",
+      },
+      render: ({ src, alt, width, height, padding, maxWidth }) => {
+        return (
+          <Section padding={padding} maxWidth={maxWidth}>
+            <img src={src} alt={alt} width={width} height={height} />
+          </Section>
+        );
+      },
+    },
+    // about bengal block
+    AboutBengal: {
+      fields: {
+        padding: { type: "text" },
+        maxWidth: { type: "text" },
+        topText: { type: "text" },
+        bottomText: { type: "text" },
+        governorImage: { type: "text" },
+        governorName: { type: "text" },
+        chiefMinisterImage: { type: "text" },
+        chiefMinisterName: { type: "text" },
+      },
+      defaultProps: {
+        padding: "24px",
+        maxWidth: "100%",
+        topText: "ABOUT BENGAL",
+        bottomText:
+          "Located in Eastern India, the fourth most populous state in the country is widely considered the Melting pot of Cultures. Bordered by five different states, its capital Kolkata is often termed as the cultural capital of India. West Bengal offers a unique flavour to the richness of India with its synthesis of various languages, religions, customs, traditions, cuisines and lifestyle. Bound by the grandeur of the Himalayan ranges in the north and sweetened by the sea in the south, Bengal has everything a state needs to flourish.",
+        governorImage: "https://placehold.co/150x150",
+        governorName: "Dr. C.V. Ananda Bose",
+        chiefMinisterImage: "https://placehold.co/150x150",
+        chiefMinisterName: "Smt. Mamata Banerjee",
+      },
+      render: ({
+        padding,
+        maxWidth,
+        topText,
+        bottomText,
+        governorImage,
+        governorName,
+        chiefMinisterImage,
+        chiefMinisterName,
+      }) => {
+        return (
+          <Section padding={padding} maxWidth={maxWidth}>
+            <div className="max-w-7xl aboutBengal  mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <h1 className="text-4xl font-bold text-center mb-6">{topText}</h1>
+              <p className="text-lg text-zinc-700 mb-10">{bottomText}</p>
+              <div className="flex md:flex-row justify-center gap-8">
+                <div className="text-center">
+                  <img
+                    src={governorImage}
+                    alt="Governor"
+                    className="mx-auto rounded-full mb-4"
+                    width={150}
+                    height={150}
+                  />
+                  <h2 className="text-xl font-semibold">MEET THE GOVERNOR</h2>
+                  <p className="font-medium text-zinc-800">{governorName}</p>
+                  <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    KNOW MORE
+                  </button>
+                </div>
+                <div className="text-center">
+                  <img
+                    src={chiefMinisterImage}
+                    alt="Chief Minister"
+                    className="mx-auto rounded-full mb-4"
+                    width={150}
+                    height={150}
+                  />
+                  <h2 className="text-xl font-semibold">
+                    MEET THE CHIEF MINISTER
+                  </h2>
+                  <p className="font-medium text-zinc-800">
+                    {chiefMinisterName}
+                  </p>
+                  <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    KNOW MORE
+                  </button>
+                </div>
+              </div>
+            </div>
           </Section>
         );
       },
